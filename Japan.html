@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Японські бойові мистецтва</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#f97316;--muted:#94a3b8;--glass:rgba(255,255,255,0.04)}
+    *{box-sizing:border-box}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial; margin:0; background:linear-gradient(180deg,#071025 0%,#07131a 100%); color:#e6eef8; -webkit-font-smoothing:antialiased}
+    header{position:sticky;top:0;backdrop-filter:blur(6px);background:linear-gradient(180deg,rgba(7,19,37,0.6),rgba(7,19,37,0.35));border-bottom:1px solid rgba(255,255,255,0.04); z-index:50}
+    .container{max-width:1100px;margin:0 auto;padding:1rem}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .brand{display:flex;align-items:center;gap:.75rem;font-weight:700}
+    .brand .logo{width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#ef4444);display:flex;align-items:center;justify-content:center;font-weight:800;color:#081127}
+    nav ul{display:flex;gap:1rem;list-style:none;padding:0;margin:0}
+    nav a{color:var(--muted);text-decoration:none;padding:.45rem .6rem;border-radius:6px}
+    nav a:hover{color:#fff;background:var(--glass)}
+    .btn{background:var(--accent);color:#081127;padding:.5rem .75rem;border-radius:8px;font-weight:600;text-decoration:none}
+
+    
+    .hero{display:grid;grid-template-columns:1fr;gap:1.25rem;align-items:center;padding:3.5rem 0}
+    .hero-inner{display:flex;gap:1.5rem;flex-direction:column}
+    .hero h1{font-size:2.1rem;margin:0;line-height:1.05}
+    .hero p{color:var(--muted);margin-top:.6rem;max-width:65ch}
+    .cards{display:flex;flex-wrap:wrap;gap:1rem}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:1rem;border-radius:12px;min-width:200px;flex:1 1 220px}
+
+    
+    section{padding:2.5rem 0;border-top:1px solid rgba(255,255,255,0.02)}
+    h2{margin:0 0 1rem 0}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+
+   
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.6rem}
+    .gallery img{width:100%;height:160px;object-fit:cover;border-radius:8px;cursor:pointer;display:block}
+
+    
+    footer{padding:2rem 0;color:var(--muted);text-align:center}
+
+    @media(min-width:900px){
+      .hero{grid-template-columns:1fr 420px}
+      .hero h1{font-size:2.6rem}
+      .hero p{font-size:1.03rem}
+    }
+
+   
+    .menu-toggle{display:none}
+    @media(max-width:780px){nav ul{display:none} .menu-toggle{display:inline-flex}}
+
+   
+    .timeline{border-left:2px solid rgba(255,255,255,0.03);padding-left:1rem}
+    .timeline-item{margin-bottom:1.25rem}
+    .timeline-item time{display:block;color:var(--muted);font-size:.92rem}
+    .lightbox{position:fixed;inset:0;background:rgba(2,6,23,0.8);display:flex;align-items:center;justify-content:center;z-index:90;padding:2rem;visibility:hidden;opacity:0;transition:opacity .18s ease,visibility .18s}
+    .lightbox.open{visibility:visible;opacity:1}
+    .lightbox img{max-width:95%;max-height:90%;border-radius:8px}
+    .close-x{position:absolute;top:18px;right:18px;color:#fff;font-size:1.25rem;cursor:pointer}
+
+   
+    .form-row{display:flex;gap:.6rem}
+    .form-row input,textarea{flex:1;padding:.6rem;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
+    textarea{min-height:120px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">武</div>
+        <div>
+          <div style="font-size:0.95rem">Японські</div>
+          <div style="font-size:0.78rem;color:var(--muted);margin-top:2px">бойові мистецтва</div>
+        </div>
+      </div>
+      <nav>
+        <button class="menu-toggle" aria-label="toggle menu" onclick="toggleMenu()">☰</button>
+        <ul id="navList">
+          <li><a href="#about">Про</a></li>
+          <li><a href="#styles">Стилі</a></li>
+          <li><a href="#gallery">Галерея</a></li>
+          <li><a href="#history">Історія</a></li>
+          <li><a href="#contact">Контакт</a></li>
+        </ul>
+      </nav>
+      <a class="btn" href="#contact">Приєднатися</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-inner">
+        <h1>Японські бойові мистецтва — шлях техніки й духу</h1>
+        <p>Від кендо та дзюдо до айкідо й карате — ці мистецтва поєднують історію, культуру та дисципліну. Сторінка знайомить з основними стилями, історією та сучасними школами.</p>
+        <div class="cards">
+          <div class="card">
+            <strong>Практика</strong>
+            <div style="color:var(--muted);margin-top:.4rem">Техніка, ката, спаринг та філософія тренувань.</div>
+          </div>
+          <div class="card">
+            <strong>Філософія</strong>
+            <div style="color:var(--muted);margin-top:.4rem">Етика, повага, контроль та розвиток характеру.</div>
+          </div>
+          <div class="card">
+            <strong>Обладнання</strong>
+            <div style="color:var(--muted);margin-top:.4rem">Гі, доґі, боккен, шинаї, татамі.</div>
+          </div>
+        </div>
+      </div>
+      <aside style="border-radius:12px;overflow:hidden;background-image:url('https://culturalgeographies.org.ua/wp-content/uploads/2025/02/1japan.jpg');background-size:cover;background-position:center;min-height:320px;box-shadow:0 8px 30px rgba(2,6,23,0.6)"></aside>
+    </section>
+
+    <section id="about">
+      <h2>Про ці мистецтва</h2>
+      <p style="color:var(--muted);max-width:72ch">Японські бойові мистецтва (будо) — це група бойових систем, які розвивалися в Японії століттями. Вони включають у себе як озброєні дисципліни (кендо, іайдо), так і беззброї (дзюдо, карате, айкідо). Багато з цих дисциплін трансформувалися з бойових систем самураїв у види спорту і мистецтва самовдосконалення.</p>
+    </section>
+
+    <section id="styles">
+      <h2>Популярні стилі</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Карате</h3>
+          <p style="color:var(--muted)">Ударна система без зброї, що наголошує на ката, ударах руками та ногами. Походить з Окінави та Японії.</p>
+        </article>
+        <article class="card">
+          <h3>Дзюдо</h3>
+          <p style="color:var(--muted)">М'яке мистецтво боротьби з акцентом на кидки й больові прийоми. Засновник — Джигоро Кано (1882–1938).</p>
+        </article>
+        <article class="card">
+          <h3>Айкідо</h3>
+          <p style="color:var(--muted)">Мистецтво гармонізації з атакою супротивника, використовує обертові прийоми та перенаправлення енергії.</p>
+        </article>
+        <article class="card">
+          <h3>Кендо</h3>
+          <p style="color:var(--muted)">Школа фехтування на мечах (сучасна спортивна форма з шинаєм та захистом).</p>
+        </article>
+        <article class="card">
+          <h3>Дзюдзюцу / Джу-джитсу</h3>
+          <p style="color:var(--muted)">Комплекс прийомів самозахисту: кидки, утримання, больові та утримуючі техніки.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <h2>Галерея</h2>
+      <div class="gallery" aria-live="polite">
+        <img loading="lazy" src="https://png.klev.club/uploads/posts/2024-04/thumbs/png-klev-club-t3bl-p-karate-png-24.png" alt="Карате — тренування на татамі" onclick="openLightbox(this)">
+        <img loading="lazy" src="https://ukrainejudo.com/images/001_2025/Veterany/Tino-Maric-Jelsa-Veteran-European-Cup-2025-2025-396293_1.jpg" alt="Дзюдо — кидок у змаганнях" onclick="openLightbox(this)">
+        <img loading="lazy" src="https://kendo.org.ua/wp-content/uploads/2018/09/AmbCup2018.png" alt="Кендо — поєдинок зі шинай" onclick="openLightbox(this)">
+        <img loading="lazy" src="https://png.klev.club/uploads/posts/2024-05/thumbs/png-klev-club-i9kn-p-aikido-png-20.png" alt="Айкідо — техніка оберту" onclick="openLightbox(this)">
+      </div>
+    </section>
+
+    <section id="history">
+      <h2>Коротка історія</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <time>Середньовіччя</time>
+          <div style="color:var(--muted)">Розвиток бойових мистецтв у часи самураїв: кен-дзюцу, стрільба з луків, джу-дзюцу.</div>
+        </div>
+        <div class="timeline-item">
+          <time>XVII–XIX ст.</time>
+          <div style="color:var(--muted)">Еволюція і стандартизація шкіл, поява відомих рю (шкіл) і технік.</div>
+        </div>
+        <div class="timeline-item">
+          <time>Кінець XIX — початок XX ст.</time>
+          <div style="color:var(--muted)">Перетворення традиційних шкіл у сучасні види спорту (наприклад, дзюдо).</div>
+        </div>
+        <div class="timeline-item">
+          <time>XX–XXI ст.</time>
+          <div style="color:var(--muted)">Міжнародне поширення, спортивні змагання, кіно та популярна культура.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Контакт / Запис</h2>
+      <p style="color:var(--muted)">Зацікавлені у тренуваннях? Залиште повідомлення, і ми зв'яжемося.</p>
+      <form onsubmit="event.preventDefault();alert('Дякуємо! Ваше повідомлення надіслано (демо).')">
+        <div class="form-row">
+          <input type="text" placeholder="Ім'я" required>
+          <input type="email" placeholder="Email" required>
+        </div>
+        <div style="margin-top:.6rem">
+          <textarea placeholder="Ваше повідомлення" required></textarea>
+        </div>
+        <div style="margin-top:.6rem">
+          <button class="btn" type="submit">Надіслати</button>
+        </div>
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">
+        <div>&copy; <strong>Японські бойові мистецтва</strong> — {2025}</div>
+        <div style="color:var(--muted)">Розроблено для ознайомлення та навчання</div>
+      </div>
+    </div>
+  </footer>
+
+  
+  <div id="lightbox" class="lightbox" role="dialog" aria-hidden="true" onclick="closeLightbox(event)">
+    <span class="close-x" onclick="closeLightbox(event)">✕</span>
+    <img id="lightboxImg" src="" alt="Велике зображення">
+  </div>
+
+  <script>
+    function toggleMenu(){
+      const ul = document.getElementById('navList');
+      if(ul.style.display === 'flex') ul.style.display = '';
+      else ul.style.display = 'flex';
+    }
+
+    function openLightbox(img){
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lightboxImg');
+      // prefer a higher-resolution source stored in data-large; fall back to src
+      const large = img.dataset && img.dataset.large ? img.dataset.large : img.src;
+      lbImg.src = large;
+      // copy alt text for accessibility
+      lbImg.alt = img.alt || '';
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden','false');
+    }
+    function closeLightbox(e){
+      if(e.target.id === 'lightbox' || e.target.classList.contains('close-x')){
+        const lb = document.getElementById('lightbox');
+        lb.classList.remove('open');
+        lb.setAttribute('aria-hidden','true');
+      }
+    }
+  </script>
+</body>
+</html>
